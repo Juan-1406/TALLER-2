@@ -5,4 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(TALLER_2 main.cpp
         SparseMatrix.cpp
-        SparseMatrix.h)
+        SparseMatrix.h
+        Node.cpp
+        Node.h
+)
