@@ -1,4 +1,6 @@
 #include "SparseMatrix.h"
+using namespace std;
+#include <iostream>
 
 SparseMatrix::SparseMatrix() {}
 
@@ -18,7 +20,22 @@ int SparseMatrix::get(int xPos, int yPos) {
 
 void SparseMatrix::remove(int xPos, int yPos) {}
 
-void SparseMatrix::printStoredValues() {}
+void SparseMatrix::printStoredValues() {
+    Node* actual = star;
+
+    cout << "Stored Values:" << endl;
+    if (actual == nullptr) {
+        cout << "Matrix is empty" << endl;
+        return;
+    }
+
+    while (actual != nullptr) {
+        if (actual -> value != 0) {
+            cout << "(" << actual -> x << ", " << actual -> y << ")" << " --> " << actual -> value << endl;
+        }
+        actual = actual -> sgt;
+    }
+}
 
 int SparseMatrix::density() {}
 
