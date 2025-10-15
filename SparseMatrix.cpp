@@ -18,7 +18,27 @@ int SparseMatrix::get(int xPos, int yPos) {
     return 0;
 }
 
-void SparseMatrix::remove(int xPos, int yPos) {}
+void SparseMatrix::remove(int xPos, int yPos) {
+    if (star == nullptr) {return;}
+
+    if (star -> x == xPos && star -> y == yPos) {
+        Node* temp = star;
+        star = star -> sgt;
+        delete temp;
+        return;
+    }
+
+    Node* actual = star;
+    while (actual -> sgt != nullptr && (actual -> sgt -> x != xPos || actual -> sgt -> y != yPos)) {
+        actual = actual -> sgt;
+    }
+
+    if (actual -> sgt != nullptr) {
+        Node* temp = actual -> sgt;
+        actual -> sgt = actual -> sgt -> sgt;
+        delete temp;
+    }
+}
 
 void SparseMatrix::printStoredValues() {
     Node* actual = star;
