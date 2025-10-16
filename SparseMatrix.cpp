@@ -5,7 +5,7 @@ using namespace std;
 SparseMatrix::SparseMatrix() {}
 
 void SparseMatrix::add(int value, int xPos, int yPos) {
-    Node* actual = star;
+    Node* actual = start;
 
     while (actual != nullptr) {
         if (actual -> x == xPos && actual -> y == yPos) {
@@ -16,12 +16,12 @@ void SparseMatrix::add(int value, int xPos, int yPos) {
     }
 
     Node* nuevoNodo = new Node(xPos, yPos, value);
-    nuevoNodo -> sgt = star;
-    star = nuevoNodo;
+    nuevoNodo -> sgt = start;
+    start = nuevoNodo;
 }
 
 int SparseMatrix::get(int xPos, int yPos) {
-    Node* actual = star;
+    Node* actual = start;
 
     while (actual != nullptr) {
         if (actual -> x == xPos && actual -> y == yPos) {
@@ -33,16 +33,16 @@ int SparseMatrix::get(int xPos, int yPos) {
 }
 
 void SparseMatrix::remove(int xPos, int yPos) {
-    if (star == nullptr) {return;}
+    if (start == nullptr) {return;}
 
-    if (star -> x == xPos && star -> y == yPos) {
-        Node* temp = star;
-        star = star -> sgt;
+    if (start -> x == xPos && start -> y == yPos) {
+        Node* temp = start;
+        start = start -> sgt;
         delete temp;
         return;
     }
 
-    Node* actual = star;
+    Node* actual = start;
     while (actual -> sgt != nullptr && (actual -> sgt -> x != xPos || actual -> sgt -> y != yPos)) {
         actual = actual -> sgt;
     }
@@ -55,7 +55,7 @@ void SparseMatrix::remove(int xPos, int yPos) {
 }
 
 void SparseMatrix::printStoredValues() {
-    Node* actual = star;
+    Node* actual = start;
 
     cout << "Stored Values:" << endl;
     if (actual == nullptr) {

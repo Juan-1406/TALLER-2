@@ -3,7 +3,7 @@
 
 class SparseMatrix {
     private:
-        Node* star;
+        Node* start;
 
     public:
         SparseMatrix();
