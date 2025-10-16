@@ -2,7 +2,9 @@
 using namespace std;
 #include <iostream>
 
-SparseMatrix::SparseMatrix() {}
+SparseMatrix::SparseMatrix() {
+    start = nullptr;
+}
 
 void SparseMatrix::add(int value, int xPos, int yPos) {
     Node* actual = start;

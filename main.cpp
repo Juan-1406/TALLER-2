@@ -23,10 +23,25 @@ int main() {
                 cout << "Saliste con exito!" << endl;
                 break;
             case 1:
+                cout << "Ingrese Valor:"; cin >> valor;
+                cout << "Ingrese xPos:"; cin >> x;
+                cout << "Ingrese yPos:"; cin >> y;
+                matriz -> add(valor, x, y);
+                cout << "Elemento agregado" << endl;
+                cout<< endl;
                 break;
             case 2:
+                cout << "Ingrese xPos:"; cin >> x;
+                cout << "Ingrese yPos:"; cin >> y;
+                cout << "Valor en (" << x <<"," << y << ") es: "<< matriz -> get(x, y) << endl;
+                cout << endl;
                 break;
             case 3:
+                cout << "Ingrese xPos:"; cin >> x;
+                cout << "Ingrese yPos:"; cin >> y;
+                matriz -> remove(x, y);
+                cout << "Elemento eliminado" << endl;
+                cout << endl;
                 break;
             case 4:
                 break;
