@@ -73,7 +73,32 @@ void SparseMatrix::printStoredValues() {
     }
 }
 
-int SparseMatrix::density() {}
+int SparseMatrix::density() {
+    Node* actual = start;
+
+    int cantElementos = 0; //LOS ELEMENTOS DISTINTOS DE 0
+    int maxX = 0;
+    int maxY = 0;
+
+    while (actual != nullptr) {
+        if (actual -> value != 0) {
+            cantElementos++;
+        }
+        if (actual -> x > maxX) {
+            maxX = actual -> x;
+        }
+        if (actual -> y > maxY) {
+            maxY = actual -> y;
+        }
+        actual = actual -> sgt;
+    }
+
+    if (cantElementos == 0) {return 0;}
+
+    int tamañoTotal = (maxX + 1) * (maxY + 1);
+    double densidad = (cantElementos * 100.0) / tamañoTotal;
+    return densidad;
+}
 
 SparseMatrix *SparseMatrix::multiply(SparseMatrix *second) {}
 

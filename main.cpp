@@ -44,8 +44,12 @@ int main() {
                 cout << endl;
                 break;
             case 4:
+                matriz -> printStoredValues();
+                cout << endl;
                 break;
             case 5:
+                cout << "Densidad de la Matriz: " << matriz ->density() << "%" << endl;
+                cout << endl;
                 break;
             case 6:
                 break;
