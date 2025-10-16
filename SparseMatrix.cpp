@@ -4,7 +4,21 @@ using namespace std;
 
 SparseMatrix::SparseMatrix() {}
 
-void SparseMatrix::add(int value, int xPos, int yPos) {}
+void SparseMatrix::add(int value, int xPos, int yPos) {
+    Node* actual = star;
+
+    while (actual != nullptr) {
+        if (actual -> x == xPos && actual -> y == yPos) {
+            actual -> value = value;
+            return;
+        }
+        actual = actual -> sgt;
+    }
+
+    Node* nuevoNodo = new Node(xPos, yPos, value);
+    nuevoNodo -> sgt = star;
+    star = nuevoNodo;
+}
 
 int SparseMatrix::get(int xPos, int yPos) {
     Node* actual = star;
