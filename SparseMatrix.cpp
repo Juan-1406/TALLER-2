@@ -142,4 +142,12 @@ SparseMatrix *SparseMatrix::crearMatrizB(SparseMatrix* nuevaMatriz) {
     return nuevaMatriz;
 }
 
-SparseMatrix::~SparseMatrix() {}
+SparseMatrix::~SparseMatrix() {
+    Node* actual = start;
+
+    while (actual != nullptr) {
+        Node* aux = actual;
+        actual = actual -> sgt;
+        delete aux;
+    }
+}
