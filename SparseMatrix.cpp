@@ -122,4 +122,24 @@ SparseMatrix *SparseMatrix::multiply(SparseMatrix *second) {
     return resultado;
 }
 
+SparseMatrix *SparseMatrix::crearMatrizB(SparseMatrix* nuevaMatriz) {
+
+    int cant = 0;
+    cout << "Creacion Matriz B" << endl;
+    cout << "Cantidad de elementos agregar:"; cin >> cant;
+    cout<< endl;
+
+    for (int i = 0; i < cant; i++) {
+        int x, y, valor;
+
+        cout << "Ingrese Valor:"; cin >> valor;
+        cout << "Ingrese xPos:"; cin >> x;
+        cout << "Ingrese yPos:"; cin >> y;
+        nuevaMatriz -> add(valor, x, y);
+        cout << "Elemento agregado" << endl;
+        cout<< endl;
+    }
+    return nuevaMatriz;
+}
+
 SparseMatrix::~SparseMatrix() {}

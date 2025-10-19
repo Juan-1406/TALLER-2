@@ -14,6 +14,7 @@ class SparseMatrix {
         void printStoredValues();
         int density();
         SparseMatrix* multiply(SparseMatrix* second);
+        SparseMatrix* crearMatrizB(SparseMatrix* nuevaMatriz);
 
         ~SparseMatrix();
 };
