@@ -33,7 +33,7 @@ int main() {
             case 2:
                 cout << "Ingrese xPos:"; cin >> x;
                 cout << "Ingrese yPos:"; cin >> y;
-                cout << "Valor en (" << x <<"," << y << ") es: "<< matriz -> get(x, y) << endl;
+                cout << "Valor en (" << x <<", " << y << ") es: "<< matriz -> get(x, y) << endl;
                 cout << endl;
                 break;
             case 3:
@@ -48,11 +48,31 @@ int main() {
                 cout << endl;
                 break;
             case 5:
-                cout << "Densidad de la Matriz: " << matriz ->density() << "%" << endl;
+                cout << "Densidad de la Matriz: " << matriz ->density() << " %" << endl;
                 cout << endl;
                 break;
             case 6:
-                break;
+                {
+                    SparseMatrix* matriz2 = new SparseMatrix();
+                    matriz2 -> add(2,0,0);
+                    matriz2 -> add(3,1,1);
+                    matriz2 -> add(4,2,3);
+
+                    cout << "Matriz A:" << endl;
+                    matriz -> printStoredValues();
+                    cout << endl << "Matriz B:" << endl;
+                    matriz2 ->printStoredValues();
+
+                    SparseMatrix* resultado = matriz -> multiply(matriz2);
+
+                    cout << endl << "Resultado de A * B:" << endl;
+                    resultado -> printStoredValues();
+
+                    delete matriz2;
+                    delete resultado;
+                    cout << endl;
+                    break;
+                }
             default:
                 cout << "Opcion invalida. Intentalo nuevamente" << endl << endl;
         }

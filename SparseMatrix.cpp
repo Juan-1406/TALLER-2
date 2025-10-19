@@ -100,6 +100,26 @@ int SparseMatrix::density() {
     return densidad;
 }
 
-SparseMatrix *SparseMatrix::multiply(SparseMatrix *second) {}
+SparseMatrix *SparseMatrix::multiply(SparseMatrix *second) {
+    SparseMatrix* resultado = new SparseMatrix();
+    Node* nodoA = start;
+
+    while (nodoA != nullptr) {
+        Node* nodoB = second -> start;
+        while (nodoB != nullptr) {
+            if (nodoA -> y == nodoB ->x) {
+                int valor = nodoA -> value * nodoB -> value;
+                int posX = nodoA -> x;
+                int posY = nodoB -> y;
+
+                int valorActual = resultado -> get(posX, posY);
+                resultado -> add(valorActual + valor, posX, posY);
+            }
+            nodoB = nodoB -> sgt;
+        }
+        nodoA = nodoA -> sgt;
+    }
+    return resultado;
+}
 
 SparseMatrix::~SparseMatrix() {}
